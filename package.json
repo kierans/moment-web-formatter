@@ -1,0 +1,40 @@
+{
+  "name": "moment-web-formatter",
+  "version": "0.0.1",
+  "description": "Common formatting utilities for moment instances.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kierans/moment-web-formatter"
+  },
+  "keywords": [
+    "moment",
+    "date",
+    "formatting",
+    "rfc2616",
+    "iso8601",
+    "rfc822"
+  ],
+  "author": "Kieran Simpson <kierans777@gmail.com>",
+  "license": "Apache 2 License",
+  "bugs": {
+    "url": "https://github.com/kierans/moment-web-formatter/issues"
+  },
+  "homepage": "https://github.com/kierans/moment-web-formatter",
+  "peerDependencies": {
+    "moment": "*"
+  },
+  "devDependencies": {
+    "chai": "~1.9.0",
+    "mocha": "~1.17.1",
+    "mocha-should": "git+https://github.com/kierans/mocha-should/",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-simple-mocha": "~0.4.0",
+    "jshint-stylish": "~0.1.5",
+    "load-grunt-tasks": "~0.4.0"
+  }
+}

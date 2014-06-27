@@ -2,7 +2,7 @@
   "name": "moment-web-formatter",
   "version": "0.0.1",
   "description": "Common formatting utilities for moment instances.",
-  "main": "index.js",
+  "main": "moment-web-formatter.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -28,6 +28,7 @@
     "moment": "*"
   },
   "devDependencies": {
+    "moment": "~2.7.0",
     "chai": "~1.9.0",
     "mocha": "~1.17.1",
     "mocha-should": "git+https://github.com/kierans/mocha-should/",

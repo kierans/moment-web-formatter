@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/kierans/moment-web-formatter",
   "peerDependencies": {
-    "moment": "*"
+    "moment": "*",
+    "express3-handlebars": "*"
   },
   "devDependencies": {
     "moment": "~2.7.0",

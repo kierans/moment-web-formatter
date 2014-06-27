@@ -11,5 +11,32 @@ module.exports = {
   },
   formatMomentToRFC3339DateString: function(moment) {
     return this.formatMomentToISO8601DateString(moment);
+  },
+
+  /**
+   * Registers the following handlebars helper functions
+   * <ul>
+   *   <li>rfc822Date</li>
+   *   <li>iso8601Date</li>
+   *   <li>rfc3339Date</li>
+   * </ul>
+   *
+   * @param handlebarsConfig A config object for use with express3-handlebars
+   */
+  createHandlebarsHelpers: function(handlebarsConfig) {
+    var self = this;
+    var helpers = handlebarsConfig.helpers = handlebarsConfig.helpers || {};
+
+    helpers.rfc822Date = function(moment) {
+      return self.formatMomentToRFC822DateString(moment);
+    };
+
+    helpers.iso8601Date = function(moment) {
+      return self.formatMomentToISO8601DateString(moment);
+    };
+
+    helpers.rfc3339Date = function(moment) {
+      return self.formatMomentToRFC3339DateString(moment);
+    };
   }
 };

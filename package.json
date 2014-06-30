@@ -1,6 +1,6 @@
 {
   "name": "moment-web-formatter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Common formatting utilities for moment instances.",
   "main": "moment-web-formatter.js",
   "scripts": {

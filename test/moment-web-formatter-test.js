@@ -4,7 +4,7 @@
 
 var moment = require("moment");
 
-var formatter = require("../moment-web-formatter");
+var formatter = require("../src/moment-web-formatter");
 
 //noinspection JSUnresolvedVariable
 var chai = require("chai"),

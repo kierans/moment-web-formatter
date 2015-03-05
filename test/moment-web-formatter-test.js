@@ -4,7 +4,7 @@
 
 var moment = require("moment");
 
-var formatter = require("../src/moment-web-formatter");
+var Formatter = require("../src/moment-web-formatter");
 
 //noinspection JSUnresolvedVariable
 var chai = require("chai"),
@@ -14,9 +14,13 @@ var chai = require("chai"),
 describe("Moment Web Formatter tests", function() {
   // Fri 27/6/2014 2038
   var ts = moment.unix(1403865496);
-
   var handlebarsConfig = {};
-  formatter.createHandlebarsHelpers(handlebarsConfig);
+  var formatter;
+
+  beforeEach(function() {
+    formatter = new Formatter();
+    formatter.createHandlebarsHelpers(handlebarsConfig);
+  });
 
   should("not format undefined date when formatting to RFC 822 string", function() {
     var str = formatter.formatMomentToRFC822DateString(undefined);
@@ -66,6 +70,10 @@ describe("Moment Web Formatter tests", function() {
     expect(datetime.toString()).to.equal(ts.local().toString());
   });
 
+  should("throw error when parsing invalid RFC 822 date in strict mode", function() {
+    expect(formatter.parseRFC822DateStringToMoment.bind(formatter, "vavjvjnvjlvn")).to.throw();
+  });
+
   should("return undefined when parsing undefined ISO 8601 string", function() {
     var datetime = formatter.parseISO8601DateStringToMoment(undefined);
 
@@ -78,6 +86,10 @@ describe("Moment Web Formatter tests", function() {
     expect(datetime.toString()).to.equal(ts.local().toString());
   });
 
+  should("throw error when parsing invalid ISO 8601 date in strict mode", function() {
+    expect(formatter.parseISO8601DateStringToMoment.bind(formatter, "vavjvjnvjlvn")).to.throw();
+  });
+
   should("return undefined when parsing undefined RFC 3339 string", function() {
     var datetime = formatter.parseRFC3339DateStringToMoment(undefined);
 
@@ -88,6 +100,10 @@ describe("Moment Web Formatter tests", function() {
     var datetime = formatter.parseRFC3339DateStringToMoment("2014-06-27T20:38:16.000+10:00");
 
     expect(datetime.toString()).to.equal(ts.local().toString());
+  });
+
+  should("throw error when parsing invalid RFC 3339 date in strict mode", function() {
+    expect(formatter.parseRFC3339DateStringToMoment.bind(formatter, "vavjvjnvjlvn")).to.throw();
   });
 
   should("add handlebars helper RFC 822 string", function() {
